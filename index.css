@@ -1,63 +1,50 @@
 body {
   background-image: url(photo.jpg);
-  background-size: cover;         /* Ensures the background image covers the entire screen */
-  background-position: center center;  /* Centers the image */
-  background-attachment: fixed;    /* Keeps the background fixed while scrolling on desktop */
-  background-repeat: no-repeat;    /* Prevents the image from repeating */
+  background-size: cover;   /* Ensures the background covers the entire screen */
+  background-position: center center; /* Keeps the image centered */
+  background-repeat: no-repeat; /* Prevents the background from repeating */
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  height: 100vh;  /* Ensures body takes full height of the screen */
+  min-height: 100vh;  /* Ensures the body takes up the full viewport height */
 }
 
 /* Sidebar Menu */
 #menu {
   height: 100vh;
   width: 250px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 0 20px 20px 0;
+  border-radius: 0px 20px 20px 0px;
   box-shadow: 3px 3px 10px gray;
   position: fixed;
-  top: 0;
   left: -300px;
-  transition: left 0.3s ease;
-  z-index: 999;
+  transition: left 1s linear;
 }
 
-/* Toggle sidebar */
+/* Toggle the menu when checkbox is checked */
 #btmenu:checked ~ #menu {
-  left: 0;
+  left: 0px;
 }
 
-/* Menu open/close icons */
-#menu-icon span,
-#btclose span {
-  font-size: 35px;
-  position: absolute;
-  top: 15px;
-  left: 15px;
+span {
   color: gray;
-  cursor: pointer;
-  background-color: white;
-  border-radius: 50%;
-  padding: 5px;
-  box-shadow: 0px 0px 8px gray;
-  z-index: 1000;
 }
 
+/* Close button styling */
 #btclose span {
-  left: 215px;
+  position: absolute;
+  left: 220px;
+  top: 15px;
+  cursor: pointer;
 }
 
 /* Menu items */
 .icons {
   display: flex;
-  align-items: center;
   color: gray;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 600;
-  margin-bottom: 12px;
-  padding: 10px 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+  padding-left: 20px;
   cursor: pointer;
 }
 
@@ -66,47 +53,61 @@ body {
 }
 
 #icon {
-  padding-top: 70px;
+  padding-top: 50px;
 }
 
 #icon .icons:hover {
-  background-color: #f2f2f2be;
-  border-radius: 10px;
+  box-shadow: 0px 0px 10px gray;
+  /* background-color: #f2f2f2be; */
+  transition: 0s;
+}
+
+/* Menu icon (hamburger) */
+#menu-icon span {
+  font-size: 35px;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+
+#menu-icon span:hover {
   box-shadow: 0px 0px 10px gray;
 }
 
-/* Social media section */
+/* Social icons */
 #media {
   display: flex;
-  justify-content: center;
   position: absolute;
   bottom: 20px;
-  width: 100%;
+  left: 80px;
 }
 
 .social {
-  padding: 0 10px;
+  padding-left: 20px;
 }
 
-.social i {
+i {
   color: gray;
   font-size: 20px;
-  transition: transform 0.3s ease;
 }
 
-.social i:hover {
+i:hover {
   transform: scale(1.3);
+  transition: left 1.5s ease;
 }
 
-/* Responsive design */
-@media (max-width: 1200px) {
+/* Responsive Design for Smaller Screens */
+
+/* For Tablets and Below */
+@media (max-width: 1024px) {
   #menu {
-    width: 220px;
+    width: 220px;  /* Adjusted width */
   }
 
   .icons {
-    font-size: 16px;
-    padding: 8px 16px;
+    font-size: 18px; /* Slightly smaller font for better fit */
+    padding: 8px 18px;
   }
 
   #menu-icon span {
@@ -115,62 +116,53 @@ body {
     top: 10px;
   }
 
+  #btclose span {
+    left: 190px;
+  }
+
+  #media {
+    left: 60px;
+  }
+
   .social i {
     font-size: 18px;
   }
 }
 
-@media (max-width: 768px) {
+/* For Mobile Screens */
+@media (max-width: 600px) {
+  body {
+    background-size: cover;  /* Ensures background remains responsive */
+    background-position: center center;
+    background-attachment: scroll; /* Fixed background causes issues on mobile, use scroll */
+    background-repeat: no-repeat; /* Prevents the background from repeating */
+  }
+
   #menu {
-    width: 200px;
+    width: 180px;  /* Make the menu smaller on mobile */
+    left: -250px;  /* Initially hide the menu */
   }
 
   #btclose span {
-    left: 170px;
+    left: 150px; /* Adjust close button for mobile */
   }
 
   .icons {
-    font-size: 15px;
-    padding: 6px 14px;
+    font-size: 16px; /* Adjust font size for mobile */
+    padding: 8px 14px;
   }
 
   #menu-icon span {
     font-size: 28px;
-  }
-
-  .social i {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 600px) {
-  body {
-    background-size: cover;
-    background-position: center center;
-    background-attachment: scroll; /* Switch to scroll for mobile */
-  }
-
-  #menu {
-    width: 180px;
-    left: -250px;
-  }
-
-  #btclose span {
-    left: 140px;
-  }
-
-  .icons {
-    font-size: 14px;
-    padding: 6px 12px;
-  }
-
-  #menu-icon span {
-    font-size: 26px;
     left: 8px;
     top: 8px;
   }
 
+  #media {
+    left: 50px;
+  }
+
   .social i {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
