@@ -1,11 +1,13 @@
 body {
   background-image: url(photo.jpg);
-  background-size: cover;
-  background-position: center;
+  background-size: cover;         /* Ensures the background image covers the entire screen */
+  background-position: center center;  /* Centers the image */
+  background-attachment: fixed;    /* Keeps the background fixed while scrolling on desktop */
+  background-repeat: no-repeat;    /* Prevents the image from repeating */
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  
+  height: 100vh;  /* Ensures body takes full height of the screen */
 }
 
 /* Sidebar Menu */
@@ -97,13 +99,9 @@ body {
 }
 
 /* Responsive design */
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
   #menu {
-    width: 200px;
-  }
-
-  #btclose span {
-    left: 165px;
+    width: 220px;
   }
 
   .icons {
@@ -119,5 +117,60 @@ body {
 
   .social i {
     font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  #menu {
+    width: 200px;
+  }
+
+  #btclose span {
+    left: 170px;
+  }
+
+  .icons {
+    font-size: 15px;
+    padding: 6px 14px;
+  }
+
+  #menu-icon span {
+    font-size: 28px;
+  }
+
+  .social i {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll; /* Switch to scroll for mobile */
+  }
+
+  #menu {
+    width: 180px;
+    left: -250px;
+  }
+
+  #btclose span {
+    left: 140px;
+  }
+
+  .icons {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  #menu-icon span {
+    font-size: 26px;
+    left: 8px;
+    top: 8px;
+  }
+
+  .social i {
+    font-size: 14px;
   }
 }
