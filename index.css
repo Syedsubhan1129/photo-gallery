@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;  /* Ensures the body takes up the full viewport height */
+  background-attachment: fixed;  /* For larger screens, the background will be fixed */
 }
 
 /* Sidebar Menu */
@@ -134,8 +135,8 @@ i:hover {
   body {
     background-size: cover;  /* Ensures background remains responsive */
     background-position: center center;
-    background-attachment: scroll; /* Fixed background causes issues on mobile, use scroll */
     background-repeat: no-repeat; /* Prevents the background from repeating */
+    background-attachment: scroll;  /* Disables fixed background for mobile */
   }
 
   #menu {
